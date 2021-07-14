@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-container">
+    <a class="navbar-brand" style="color:white;">Employee Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+             <a class="nav-link" (click)="onOpenModal(employee,'addDep')">Add Department<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" (click)="onOpenModal(employee,'addUser')">Add User<span class="sr-only">(current)</span></a>
+         </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+     
+          <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+       </form>
+    </div>
+  </nav>
+  
+
+       <!-- Add Department Modal -->
+<div class="modal fade" id="addDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="addDepartmentModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="addDepartmentModalLabel">Add Department</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #addForm="ngForm" (ngSubmit)="onAddDepartment(addForm)">
+           <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" ngModel name="departmentName" class="form-control" id="departmentName" placeholder="Name" required>
+           </div>
+          
+           <div class="form-group">
+              <label for="phone">Address</label>
+              <input type="text" ngModel name="departmentAddress" class="form-control" id="departmentAddress" placeholder="Address" required>
+           </div>
+           
+           <div class="form-group">
+              <label for="phone">Code</label>
+              <input type="text" ngModel name="departmentCode" class="form-control" id="departmentCode" placeholder="Code" required>
+           </div>
+           <div class="modal-footer">
+              <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+           </div>
+           </form> 
+        </div>
+     </div>
+   </div>
+   </div>
+
+          <!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #addForm1="ngForm" (ngSubmit)="onAddUser(addForm1)">
+           <div class="form-group">
+              <label for="name">First Name</label>
+              <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+           </div>
+
+           <div class="form-group">
+            <label for="name">Last Name</label>
+            <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
+         </div>
+         
+           <div class="form-group">
+              <label for="phone">Email Address</label>
+              <input type="text" ngModel name="email" class="form-control" id="email" placeholder="Email Address" required>
+           </div>
+           
+           <div class="form-group">
+              <label for="phone">Code</label>
+              <input type="number" ngModel name="departmentId" class="form-control" id="departmentId" placeholder="ID" required>
+           </div>
+           <div class="modal-footer">
+              <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button [disabled]="addForm1.invalid" type="submit" class="btn btn-primary">Save changes</button>
+           </div>
+           </form> 
+        </div>
+     </div>
+   </div>
+   </div>
